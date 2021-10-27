@@ -1,7 +1,9 @@
+using AvailityAPI.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,7 +30,9 @@ namespace AvailityAPI
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "AvailityAPI", Version = "v1" } ));
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo {Title = "AvailityAPI", Version = "v1"} ));
+            services.AddDbContext<LoginDetailContext>(options =>
+                options.UseSqlServer( Configuration.GetConnectionString("Default") ));
 
             // Cross Origin Resource Sharing: Is a W3C standard that allows a server to relax the same-origin policy.
             services.AddCors(options =>

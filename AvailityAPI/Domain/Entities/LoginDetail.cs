@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace AvailityAPI.Models
+namespace AvailityAPI.Domain.Entities
 {
-    public class LoginDetails
+    public class LoginDetail
     {
         [Key]
         public int UserId { get; set; }
