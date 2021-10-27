@@ -8,6 +8,6 @@ namespace AvailityAPI.Infrastructure
         public LoginDetailContext(DbContextOptions<LoginDetailContext> options) : base(options)
         { }
 
-        public DbSet<LoginDetail> MyProperty { get; set; }
+        public DbSet<LoginDetail> LoginDetails { get; set; }
     }
 }
