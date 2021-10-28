@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoginDetails } from './login-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +7,6 @@ import { Injectable } from '@angular/core';
 export class LoginDetailsService {
 
   constructor() { }
+
+  formData: LoginDetails = new LoginDetails();
 }
