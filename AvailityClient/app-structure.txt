@@ -1,0 +1,19 @@
+# src
+- index.html (path bootstrap $ fa icons)
+># app
+>- app.module.ts
+>># login-details
+[P]- login-details.component.ts|.html|.css
+>>># login-details-form
+[C]- login-details-form.component.ts|.html|.css
+>># shared
+- login-details.service.ts
+- login-details.model.ts
+
+NOTES:
+- Command for component creation ([g]:global; [c]:component [-s]:skip css; [--skip-tests]:obvious):
+--> ng g c login-details -s --skip-tests
+- Command for service class creation ([s]:service):
+--> ng g s shared/login-details --skip-tests
+- Command for model class creation ([--type=model]:type of class):
+--> ng g class shared/login-details --type=model --skip-tests
