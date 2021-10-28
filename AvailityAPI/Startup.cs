@@ -39,11 +39,7 @@ namespace AvailityAPI
             {
                 options.AddDefaultPolicy(policy =>
                 {
-                    // --> DEBUG
-                    var tmp = Configuration["WebClients:Availity"];
-                    // DEBUG <--
-
-                    policy.WithOrigins(Configuration[tmp])
+                    policy.WithOrigins(Configuration["WebClients:Availity"])
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
