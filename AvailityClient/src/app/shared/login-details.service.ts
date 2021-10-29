@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginDetails } from './login-details.model';
 
@@ -6,7 +7,13 @@ import { LoginDetails } from './login-details.model';
 })
 export class LoginDetailsService {
 
-  constructor() { }
+  readonly baseUrl = 'http://localhost:5000/api/LoginDetails';
+  
+  constructor(private http:HttpClient) { }
 
   formData: LoginDetails = new LoginDetails();
+
+  postLoginDetails(){
+    return this.http.post(this.baseUrl, this.formData);
+  }
 }

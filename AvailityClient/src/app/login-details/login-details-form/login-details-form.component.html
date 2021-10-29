@@ -1,12 +1,12 @@
-<form novalidate #form="ngForm"> <!-- (submit)="onSubmit(form)" -->
+<form #form="ngForm" (submit)="onSubmit(form)">
     <input type="hidden" name="loginDetailId" [value]="service.formData.loginDetailId">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>First Name</label>
             <input
+                required
                 class="form-control form-control-lg"
                 placeholder="First Name"
-                required
                 name="firstName"
                 #firstName="ngModel"
                 [(ngModel)]="service.formData.firstName"
@@ -15,9 +15,9 @@
         <div class="form-group col-md-6">
             <label>Last Name</label>
             <input
+                required
                 class="form-control form-control-lg"
                 placeholder="Last Name"
-                required
                 name="lastName"
                 #lastName="ngModel"
                 [(ngModel)]="service.formData.lastName"
@@ -29,7 +29,6 @@
         <input
             class="form-control form-control-lg"
             placeholder="NPI Number"
-            required
             name="npiNumber"
             #npiNumber="ngModel"
             [(ngModel)]="service.formData.npiNumber"
@@ -49,6 +48,7 @@
         <label>Email</label>
             <input
             type="email"
+            required
             class="form-control form-control-lg"
             placeholder="Email"
             name="email"

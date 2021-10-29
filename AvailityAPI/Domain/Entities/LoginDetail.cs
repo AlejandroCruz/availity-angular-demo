@@ -15,10 +15,12 @@ namespace AvailityAPI.Domain.Entities
         [Required]
         [Column(TypeName = "nvarchar(256)")]
         public string LastName { get; set; }
-        
-        public int NpiNumber { get; set; }
-        
-        public int PhoneNumber { get; set; }
+
+        [Column(TypeName = "nvarchar(256)")]
+        public string NpiNumber { get; set; }
+
+        [Column(TypeName = "nvarchar(256)")]
+        public string PhoneNumber { get; set; }
         
         [Required]
         [Column(TypeName = "nvarchar(256)")]

@@ -21,7 +21,6 @@ namespace AvailityAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "AvailityAPI", Version = "v1" }));
             services.AddDbContext<LoginDetailContext>(options =>
@@ -32,11 +31,12 @@ namespace AvailityAPI
             {
                 options.AddDefaultPolicy(policy =>
                 {
-                    policy.WithOrigins(Configuration["WebClients:Availity"])
+                    policy.WithOrigins("http://localhost:4200")//(Configuration["WebClients:Availity"])
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
             });
+            //services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,9 +49,13 @@ namespace AvailityAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AvailityAPI v1"));
             }
 
-            app.UseCors();
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors();
+            //app.UseCors(options =>
+            //    options.WithOrigins(_webClientAddress)//("http://localhost:4200")
+            //    .AllowAnyHeader()
+            //    .AllowAnyMethod());
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
