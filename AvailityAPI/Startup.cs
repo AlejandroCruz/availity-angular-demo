@@ -16,6 +16,7 @@ namespace AvailityAPI
             Configuration = configuration;
         }
 
+        private readonly string _corsPolicy = "CorsPolicy";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -29,14 +30,14 @@ namespace AvailityAPI
             // Cross Origin Resource Sharing: Is a W3C standard that allows a server to relax the same-origin policy.
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(policy =>
+                options.AddPolicy(name: _corsPolicy, builder =>
                 {
-                    policy.WithOrigins("http://localhost:4200")//(Configuration["WebClients:Availity"])
+                    builder
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
             });
-            //services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,12 +51,8 @@ namespace AvailityAPI
             }
 
             //app.UseHttpsRedirection();
+            app.UseCors(_corsPolicy);
             app.UseRouting();
-            app.UseCors();
-            //app.UseCors(options =>
-            //    options.WithOrigins(_webClientAddress)//("http://localhost:4200")
-            //    .AllowAnyHeader()
-            //    .AllowAnyMethod());
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
