@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvailityAPI", "AvailityAPI\AvailityAPI.csproj", "{8C16D39E-DD17-4EBA-860B-DC0373CAA12A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentAPI", "..\PaymentAPI\PaymentAPI\PaymentAPI.csproj", "{6DDBD306-EBCF-4E84-924F-38B7393FBF57}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{8C16D39E-DD17-4EBA-860B-DC0373CAA12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C16D39E-DD17-4EBA-860B-DC0373CAA12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C16D39E-DD17-4EBA-860B-DC0373CAA12A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DDBD306-EBCF-4E84-924F-38B7393FBF57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DDBD306-EBCF-4E84-924F-38B7393FBF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DDBD306-EBCF-4E84-924F-38B7393FBF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DDBD306-EBCF-4E84-924F-38B7393FBF57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AvailityAPI.Domain.Entities
 {
+    [Table("LoginDetails", Schema = "dbo")]
     public class LoginDetail
     {
         [Key]
@@ -15,13 +17,18 @@ namespace AvailityAPI.Domain.Entities
         [Required]
         [Column(TypeName = "nvarchar(256)")]
         public string LastName { get; set; }
-        
-        public int NpiNumber { get; set; }
-        
-        public int PhoneNumber { get; set; }
-        
+
+        [Column(TypeName = "nvarchar(256)")]
+        public string NpiNumber { get; set; } = null;
+
+        [Column(TypeName = "nvarchar(256)")]
+        public string PhoneNumber { get; set; } = null;
+
         [Required]
         [Column(TypeName = "nvarchar(256)")]
         public string Email { get; set; }
+
+        [Column(TypeName = "datetime2(7)")]
+        public DateTime DateCreated { get; set; } = DateTime.Now;
     }
 }

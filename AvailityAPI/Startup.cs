@@ -16,12 +16,12 @@ namespace AvailityAPI
             Configuration = configuration;
         }
 
+        private readonly string _corsPolicy = "CorsPolicy";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "AvailityAPI", Version = "v1" }));
             services.AddDbContext<LoginDetailContext>(options =>
@@ -30,9 +30,10 @@ namespace AvailityAPI
             // Cross Origin Resource Sharing: Is a W3C standard that allows a server to relax the same-origin policy.
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(policy =>
+                options.AddPolicy(name: _corsPolicy, builder =>
                 {
-                    policy.WithOrigins(Configuration["WebClients:Availity"])
+                    builder
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
@@ -49,8 +50,8 @@ namespace AvailityAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AvailityAPI v1"));
             }
 
-            app.UseCors();
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
+            app.UseCors(_corsPolicy);
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
