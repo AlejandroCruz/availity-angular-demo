@@ -23,11 +23,11 @@ export class LoginDetailsFormComponent implements OnInit {
     this.service.postLoginDetails().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.success('Submitted successfully!', 'Login Registration');
+        this.toastr.success('Registration success.', 'Login Registration');
       },
       err => {
         console.error();
-        this.toastr.error('Submit error.', 'Login Registration');
+        this.toastr.error('Registration error.', 'Login Registration');
       }
     );
   }
